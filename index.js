@@ -10,6 +10,11 @@ const port = 3000;
 // Set up multer for file uploads
 const upload = multer({ dest: 'uploads/' });
 
+app.use("/", (req, res) => {
+    res.json({message: "Hello From Express App"})
+ 
+})
+
 app.post('/crop', upload.single('image'), async (req, res) => {
     try {
         // Get coordinates and dimensions from the request
